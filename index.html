@@ -1,113 +1,493 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Madras Silicons</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Madras Silicons — Karan Arjun S</title>
+  <meta name="description" content="Madras Silicons — A one-man journey of building machines & MCUs from scratch. Projects and story of Karan Arjun S from Chennai." />
   <style>
+    :root{
+      --bg: #121212;
+      --card: #1c1c1c;
+      --accent: #f9c300;
+      --accent-light: #ffd643;
+      --muted: #d1c988;
+      --text: #f5f5f5;
+      --glass: rgba(255, 243, 0, 0.1);
+      --border: rgba(249, 195, 0, 0.2);
+      --maxw: 1100px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #191919;
-      color: #ececec;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .navbar {
-      background: #FFD600;
-      color: #18191a;
-      padding: 1rem 2rem;
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 40px auto 48px;
+      padding: 0 24px 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      user-select: none;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 28px;
+      color: #121212;
+      box-shadow: 0 4px 8px rgba(249, 195, 0, 0.5);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      text-shadow: 0 0 8px var(--accent);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      padding-bottom: 4px;
+      user-select: none;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--accent-light);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--accent-light);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      background: var(--card);
+      backdrop-filter: saturate(150%) blur(8px);
+      padding: 28px 32px;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(249, 195, 0, 0.15);
+    }
+
+    .hero h2 {
+      margin: 0 0 12px;
+      font-size: clamp(24px, 5vw, 48px);
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 12px var(--accent-light);
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .hero p strong {
+      color: var(--accent-light);
+      font-weight: 700;
+    }
+
+    .cta {
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #121212;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(249, 195, 0, 0.4);
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      margin-right: 12px;
+      border: none;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background: var(--accent-light);
+      box-shadow: 0 8px 20px rgba(255, 214, 72, 0.7);
+      color: #121212;
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border: 2px solid var(--accent-light);
+      color: var(--accent-light);
+      box-shadow: none;
+    }
+
+    .btn.ghost:hover,
+    .btn.ghost:focus {
+      background: var(--accent-light);
+      color: #121212;
+      border-color: var(--accent-light);
+      box-shadow: 0 8px 20px rgba(255, 214, 72, 0.7);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(249, 195, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(249, 195, 0, 0.3);
+    }
+
+    .card h3 {
+      margin: 0 0 12px 0;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .project-card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(249, 195, 0, 0.1);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      box-shadow: 0 12px 24px rgba(249, 195, 0, 0.4);
+      transform: translateY(-8px);
+    }
+
+    .proj-img {
+      height: 140px;
+      border-radius: 14px;
+      background: linear-gradient(90deg, #f9c300aa 0%, #b68f00dd 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #121212cc;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      user-select: none;
+      box-shadow: inset 0 0 10px #b68f0099;
+    }
+
+    .project-card p.muted {
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex-grow: 1;
+      margin-bottom: 16px;
+    }
+
+    .project-card a.btn {
+      align-self: flex-start;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      border-radius: 12px;
+    }
+
+    section#about {
+      margin-top: 48px;
+    }
+
+    section#about .grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+      align-items: flex-start;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding: 18px 24px;
+      border-radius: 14px;
+      background: rgba(249, 195, 0, 0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+      color: #222;
+      font-size: 0.9rem;
+      user-select: none;
+      font-weight: 600;
+      box-shadow: 0 0 12px #f9c30077;
     }
-    .navbar-brand {
-      font-size: 1.7rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #191919;
-      text-decoration: none;
-    }
-    .navbar-links a {
-      color: #191919;
-      text-decoration: none;
-      margin-left: 2rem;
-      font-weight: 500;
-    }
-    .hero {
-      background: linear-gradient(110deg, #FFD600 0%, #FFA800 100%);
-      color: #1a1a1a;
-      padding: 6rem 2rem 4rem 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin: 0 0 1.5rem 0;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 560px;
-      margin: 0 auto;
-      font-weight: 500;
-    }
-    .section {
-      background: #191919;
-      padding: 3rem 2rem 2rem 2rem;
-      text-align: center;
-    }
-    .section h2 {
-      color: #FFD600;
-      font-size: 2rem;
-      margin-top: 0;
-    }
-    .section p {
-      font-size: 1.1rem;
-      color: #ececec;
-      max-width: 720px;
-      margin: 1rem auto 0 auto;
-    }
-    .footer {
-      background: #111;
-      color: #FFD600;
-      text-align: center;
-      padding: 1.5rem 0 1rem 0;
-      font-size: 0.95rem;
-      letter-spacing: 1px;
-    }
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.35rem;
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .grid {
+        grid-template-columns: 1fr;
       }
-      .section h2 {
-        font-size: 1.15rem;
+
+      nav a {
+        margin-left: 14px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .project-card a.btn {
+        align-self: center;
       }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <span class="navbar-brand">Madras Silicons</span>
-    <span class="navbar-links">
-      <a href="#">About</a>
-      <a href="#">Vision</a>
-      <a href="#">Contact</a>
-    </span>
-  </nav>
-  <header class="hero">
-    <h1>Innovating in Semiconductors & Embedded Systems</h1>
-    <p>Driving forward the next generation of electronics design, embedded systems, and silicon innovation.</p>
-  </header>
-  <section class="section">
-    <h2>About Us</h2>
-    <p>Madras Silicons is an initiative to explore semiconductor design, embedded systems, and the future of electronics.</p>
-  </section>
-  <section class="section">
-    <h2>Our Vision</h2>
-    <p>To showcase capabilities in chip architecture, embedded design, and next-generation silicon innovation.</p>
-  </section>
-  <footer class="footer">
-    © 2025 Madras Silicons. All Rights Reserved.
-  </footer>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">MS</div>
+        <div>
+          <h1>Madras Silicons</h1>
+          <div class="muted">Karan Arjun S — Chennai | DIY • Embedded • Machines</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#vision">Vision</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="hero-inner">
+        <h2>Madras Silicons — A one-man journey of building MCUs & machines from scratch</h2>
+        <p class="muted">Hi, I’m <strong>Karan Arjun S</strong> from Chennai. I love DIY electronics, building machines, and turning ideas into working prototypes. This site shows what a single person from Madras can build with curiosity and persistence.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">See My Projects</a>
+          <a class="btn ghost" href="#contact">Contact Me</a>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="card">
+          <h3>Quick Facts</h3>
+          <p class="muted">Location: Chennai, Tamil Nadu<br>Focus: Embedded systems, PCBs, small robots, automation<br>Started with: Zero prior electronics knowledge</p>
+        </div>
+        <div class="card">
+          <h3>Skills & Tools</h3>
+          <p class="muted">STM MCUs, PCB design basics, Soldering, PLC basics, C/C++, IoT basics, 3D printing (if any), basic machining</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" style="margin-top:48px">
+      <h2 style="margin-bottom:14px; color: var(--accent);">Projects</h2>
+      <p class="muted">A snapshot of experiments and builds. Each card can link to detailed posts, GitHub repos, or photos later.</p>
+
+      <div class="projects" style="margin-top:24px">
+        <article class="project-card" tabindex="0">
+          <div class="proj-img">Custom MCU Experiments</div>
+          <h3>Custom MCU Experiments</h3>
+          <p class="muted">Documented steps of experimenting with microcontrollers, minimal boards, and firmware — from blinking LEDs to building small bootloaders.</p>
+          <p><a class="btn" href="#">Learn more</a></p>
+        </article>
+
+        <article class="project-card" tabindex="0">
+          <div class="proj-img">DIY Machines</div>
+          <h3>DIY Machines & Rigs</h3>
+          <p class="muted">Automation rigs and small machines built to solve practical problems on the shop floor — PLC integration, sensors, and operator feedback systems.</p>
+          <p><a class="btn" href="#">Learn more</a></p>
+        </article>
+
+        <article class="project-card" tabindex="0">
+          <div class="proj-img">PCB & Electronics</div>
+          <h3>PCB & Electronics</h3>
+          <p class="muted">From breadboard prototypes to SMD PCBs — lessons learned, common pitfalls, and tips for beginners.</p>
+          <p><a class="btn" href="#">Learn more</a></p>
+        </article>
+
+        <article class="project-card" tabindex="0">
+          <div class="proj-img">Inspection Systems</div>
+          <h3>Engine Inspection System</h3>
+          <p class="muted">Industrial-scale project integrating robotics, sensors, and PLCs to inspect engine parts — a major learning milestone.</p>
+          <p><a class="btn" href="#">Learn more</a></p>
+        </article>
+
+        <article class="project-card" tabindex="0">
+          <div class="proj-img">Wireless Poka-yoke</div>
+          <h3>Wireless Poka-yoke System</h3>
+          <p class="muted">A lamp-and-button system for assembly lines using ESP networks and a central controller to reduce pick errors.</p>
+          <p><a class="btn" href="#">Learn more</a></p>
+        </article>
+
+        <article class="project-card" tabindex="0">
+          <div class="proj-img">Learning Log</div>
+          <h3>Learning Log & Resources</h3>
+          <p class="muted">Notes, book recommendations, and step-by-step guides for anyone starting from zero.</p>
+          <p><a class="btn" href="#">Learn more</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:48px">
+      <h2 style="color: var(--accent);">About Me</h2>
+      <div class="grid" style="margin-top:20px;align-items:start">
+        <div class="card" tabindex="0">
+          <h3>My Story</h3>
+          <p class="muted">I’m <strong>Karan Arjun S</strong>, from Chennai. I began as a beginner with curiosity and limited resources. Over time, through trial-and-error, I learned to read datasheets, solder SMD parts, write firmware, and design simple mechanical fixtures. This site records that journey.</p>
+        </div>
+        <div class="card" tabindex="0">
+          <h3>What I Believe</h3>
+          <p class="muted">If we try, learn, and share, the next breakthrough can come from anywhere — even a single person in Madras. My goal is to inspire, teach, and collaborate.</p>
+        </div>
+        <div class="card" tabindex="0">
+          <h3>How to Use this Site</h3>
+          <p class="muted">Browse projects, check the learning log for tutorials, and contact me for collaborations. Everything here is built and written by me — raw, honest, and practical.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" style="margin-top:48px">
+      <h2 style="color: var(--accent);">Vision</h2>
+      <div class="card" style="margin-top:20px" tabindex="0">
+        <h3>More than a Portfolio</h3>
+        <p class="muted">Madras Silicons is a statement — showcasing the power of curiosity, persistence, and making. I want to build a community where makers from India can learn, collaborate, and push boundaries.</p>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:48px">
+      <h2 style="color: var(--accent);">Contact</h2>
+      <div class="grid" style="margin-top:20px">
+        <div class="card" tabindex="0">
+          <h3>Get in touch</h3>
+          <p class="muted">For collaboration, questions, or to see project files, email me:</p>
+          <p style="margin-top:10px"><a class="btn" href="mailto:karan.arjun@example.com">karan.arjun@example.com</a></p>
+          <p class="muted" style="margin-top:12px">Or add links to your GitHub / LinkedIn when ready.</p>
+        </div>
+        <div class="card" tabindex="0">
+          <h3>Share & Support</h3>
+          <p class="muted">If you like my work, share it with friends. If you want to support the builds, add a link here (Patreon, PayTM, UPI placeholder).</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="muted">© <span id="year"></span> Madras Silicons — Karan Arjun S • Built with curiosity</div>
+      <div class="muted">Made in Chennai</div>
+    </footer>
+  </div>  
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
 </body>
 </html>
