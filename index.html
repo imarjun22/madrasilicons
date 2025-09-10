@@ -1,212 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Madras Silicons — Embedded Solutions</title>
-  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
     :root {
-      --bg: #101012;
-      --card: #19191b;
-      --accent: #ffd800;
-      --accent-light: #fff940;
-      --muted: #cccc86;
-      --text: #fbfbf7;
-      --border: #ffd80050;
-      --maxw: 1200px;
-      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      --yellow: #ffe800;
+      --yellow-dark: #d4bf00;
+      --black: #000000;
+      --gray-light: #f9f9f9;
+      --text-light: #fff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
     }
     body {
-      margin:0; background: var(--bg); color:var(--text); line-height:1.6;
+      background: var(--black);
+      color: var(--text-light);
+      font-weight: 400;
+      line-height: 1.6;
     }
-    .container {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .navbar {
-      background: var(--card);
-      box-shadow: 0 3px 12px #ffd80010;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .navbar a {
-      color: var(--accent);
+    a {
       text-decoration: none;
+    }
+    header {
+      background: var(--yellow);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 50px;
+      margin: 1.5rem auto;
+      max-width: 1100px;
+      color: var(--black);
       font-weight: 700;
-      margin: 0 18px;
       font-size: 1.1rem;
-      transition: color 0.2s;
     }
-    .navbar a:hover { color: var(--accent-light);}
-    .navbar-buttons .btn {
-      background: var(--accent);
-      color: #222;
-      border-radius: 12px;
-      padding: 10px 20px;
+    header .brand {
+      font-weight: 900;
+      font-size: 1.25rem;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      color: var(--black);
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: color 0.2s ease;
+    }
+    nav a:hover {
+      color: var(--yellow-dark);
+    }
+    .checkout-btn {
+      background: var(--yellow-dark);
+      padding: 0.55rem 1.3rem;
+      border-radius: 40px;
       font-weight: 700;
-      border: none;
-      margin-left: 10px;
-      box-shadow: 0 2px 8px #ffd80040;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    .navbar-buttons .btn:hover { background: var(--accent-light);}
-    .hero {
-      background: linear-gradient(123deg, var(--bg) 70%, var(--accent) 130%);
-      padding: 42px 0 32px;
+    .checkout-btn:hover {
+      background: var(--black);
+      color: var(--yellow);
+      border: 2px solid var(--yellow);
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
       text-align: center;
     }
-    .hero h1 { color: var(--accent); font-size: 2.7rem; margin: 0 0 16px; font-weight: 900; }
-    .hero p { color: var(--muted); font-size: 1.2rem; font-weight: 500;}
-    .hero .hero-img { margin: 40px auto 0; max-width:410px; border-radius:16px; box-shadow: 0 8px 32px #ffd80033;}
-    .hero .btn {
-      background: var(--accent);
-      color: #18181a;
-      border-radius: 10px;
-      padding: 11px 28px;
+    main h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    main p {
+      max-width: 700px;
+      margin: 0 auto 2.5rem auto;
+      color: var(--yellow);
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: var(--yellow);
+      color: var(--black);
       font-weight: 700;
+      border: none;
+      border-radius: 40px;
+      padding: 0.75rem 2rem;
       font-size: 1rem;
-      margin-top: 30px;
-      text-decoration:none;
-      display:inline-block;
-      box-shadow: 0 2px 16px #ffd80012;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    .hero .btn:hover { background: var(--accent-light);}
-    .services { padding: 60px 0 32px;}
-    .services-title {color:var(--accent);text-align:center;font-size:2rem;font-weight:800;margin-bottom:24px;}
-    .service-list {display:flex;flex-wrap:wrap;gap:24px;justify-content:center;}
-    .service-card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 26px;
-      min-width: 240px;
-      flex: 1 1 220px;
-      box-shadow: 0 4px 24px #ffd80011;
-      border: 1px solid var(--border);
+    .btn:hover {
+      background: var(--yellow-dark);
+      color: var(--text-light);
     }
-    .service-card h4 {color:var(--accent);margin:0 0 8px;}
-    .service-card p { color: var(--muted); font-size:1.02rem;}
-    .gallery {padding:52px 0;}
-    .gallery-title { color: var(--accent); text-align:center; font-size:2rem; font-weight:700; }
-    .gallery-grid { display: flex; flex-wrap: wrap; gap:16px; justify-content:center; margin-top:32px;}
-    .gallery-img { border-radius:12px; box-shadow:0 2px 14px #ffd80019; min-width:180px; width:200px;}
-    .about { padding:52px 0;}
-    .about-grid { display: flex; gap:40px; align-items: center; flex-wrap: wrap;}
-    .about-img { width:330px; border-radius:18px; box-shadow:0 4px 22px #ffd80024;}
-    .about-content { max-width:540px;}
-    .about-content h2 { color: var(--accent);margin:0 0 10px;font-size:2rem;}
-    .about-content p { color:var(--muted);}
-    .contacts {padding:52px 0;}
-    .contacts-wrap {display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap;}
-    .contacts-info {background:var(--card);padding:23px 24px;border-radius:14px;min-width:250px;box-shadow:0 2px 12px #ffd80009;}
-    .contacts-info h4 {color:var(--accent);margin-bottom:10px;}
-    .contacts-info ul {margin:0;padding:0;list-style:none;}
-    .contacts-info li {color:var(--text);}
-    .footer {
-      background: var(--card);
-      color: var(--muted);
-      text-align:center;
-      font-size: 1.05rem;
-      padding: 28px 0 14px;
-      margin-top:48px;
-      border-top: 2px solid var(--border);
+    .btn-outline {
+      background: none;
+      border: 2px solid var(--yellow);
+      color: var(--yellow);
     }
-    /* Responsive */
-    @media (max-width:900px) {
-      .about-grid, .contacts-wrap { flex-direction:column; gap:22px;}
-      .service-list { flex-direction:column;}
-      .gallery-grid { flex-direction:column; align-items:center;}
+    .btn-outline:hover {
+      background: var(--yellow);
+      color: var(--black);
+      border-color: var(--yellow);
+    }
+    @media (max-width: 600px) {
+      main h1 {
+        font-size: 2rem;
+      }
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <nav class="navbar">
-      <div>
-        <a href="#"><strong>Madras Silicons</strong></a>
-      </div>
-      <div>
-        <a href="#about">About</a>
-        <a href="#services">Projects</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contacts">Contact</a>
-      </div>
-      <div class="navbar-buttons">
-        <a class="btn" href="#form">Enquire</a>
-      </div>
+  <header>
+    <div class="brand">Madras Silicons</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contacts</a>
+      <button class="checkout-btn">Checkout</button>
     </nav>
-    <section class="hero">
-      <h1>Madras Silicons<br>Inventing with Embedded Tech</h1>
-      <p>Engineer in Chennai, focused on wireless MCUs, automation and real-world DIY electronics. Explore boundary-pushing projects and practical insights from India's tech scene.</p>
-      <img src="assets/images/44f2165d-288e-449c-a361-9ce0fccbefd1-1024x1024.png" class="hero-img" alt="MS-hero">
-      <a class="btn" href="#services">See My Work</a>
-    </section>
-    <section class="services" id="services">
-      <div class="services-title">Featured Projects & Services</div>
-      <div class="service-list">
-        <div class="service-card">
-          <h4>Custom MCU Experiments</h4>
-          <p>Bare-metal development using STM and ESP chips, including code and fabrication tips for beginners and pros.</p>
-        </div>
-        <div class="service-card">
-          <h4>Factory Automation Rigs</h4>
-          <p>Sensors, operator-feedback systems, and wireless poka-yoke solutions for shop floor improvement.</p>
-        </div>
-        <div class="service-card">
-          <h4>PCB & SMD Work</h4>
-          <p>Guides and troubleshooting for high-density, small footprint boards and low-cost fabrication.</p>
-        </div>
-      </div>
-    </section>
-    <section class="gallery" id="gallery">
-      <div class="gallery-title">Showcase & Builds</div>
-      <div class="gallery-grid">
-        <img src="assets/images/gallery02.jpg" class="gallery-img" alt="PCB Project">
-        <img src="assets/images/gallery10.jpg" class="gallery-img" alt="Lab Setup">
-        <img src="assets/images/gallery08.jpg" class="gallery-img" alt="Automation Rig">
-        <img src="assets/images/gallery13.jpg" class="gallery-img" alt="Workshop">
-      </div>
-    </section>
-    <section class="about" id="about">
-      <div class="about-grid">
-        <img src="assets/images/gallery01.jpg" class="about-img" alt="Karan Arjun S">
-        <div class="about-content">
-          <h2>About the Maker</h2>
-          <p>I’m Karan Arjun S, embedded engineer in Chennai. Starting from zero, I learned to design microcontroller systems, solder SMDs, and automate real-world tasks. My goal: push tech boundaries, share honest lessons, and enable Indian makers to build, learn, and collaborate.</p>
-        </div>
-      </div>
-    </section>
-    <section class="contacts" id="contacts">
-      <div class="contacts-wrap">
-        <div class="contacts-info">
-          <h4>Contact Me</h4>
-          <ul>
-            <li>Phone: 7904116530</li>
-            <li>Email: karanarjun432@gmail.com</li>
-            <li>Location: Chennai, India</li>
-            <li>Hours: 9:00AM – 6:00PM</li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="color:var(--accent);margin-bottom:10px;">Connect & Collaborate</h4>
-          <p style="color:var(--muted);max-width:330px;">For project files, resources, feedback or collaboration, use the form below or email to discuss your needs.</p>
-          <form id="form">
-            <input type="text" placeholder="Name" style="margin-bottom:9px;width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);">
-            <input type="email" placeholder="Email" style="margin-bottom:9px;width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);">
-            <textarea placeholder="Message" style="margin-bottom:9px;width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);height:70px;"></textarea>
-            <button type="submit" class="btn" style="width:100%;">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </section>
-    <div class="footer">
-      <div>© 2025 Madras Silicons · Built with curiosity & code · Chennai, India</div>
+  </header>
+  <main>
+    <h1>
+      Madras Silicons<br />
+      journey of building MCU from scratch
+    </h1>
+    <p>
+      Hi, I’m Karan Arjun S from Chennai. I love DIY electronics, building machines, and turning ideas into working prototypes. This site shows what a single person from Madras can build with curiosity and persistence.
+    </p>
+    <div class="buttons">
+      <button class="btn">See My Projects</button>
+      <button class="btn btn-outline">Contact Me</button>
     </div>
-  </div>
+  </main>
 </body>
 </html>
-
