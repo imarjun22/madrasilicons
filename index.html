@@ -1,158 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Madras Silicons — Embedded Solutions</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-    :root {
-      --yellow: #ffe800;
-      --yellow-dark: #d4bf00;
-      --black: #000000;
-      --gray-light: #f9f9f9;
-      --text-light: #fff;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background: var(--black);
-      color: var(--text-light);
-      font-weight: 400;
-      line-height: 1.6;
-    }
-    a {
-      text-decoration: none;
-    }
-    header {
-      background: var(--yellow);
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 50px;
-      margin: 1.5rem auto;
-      max-width: 1100px;
-      color: var(--black);
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    header .brand {
-      font-weight: 900;
-      font-size: 1.25rem;
-    }
-    nav a {
-      margin-left: 1.5rem;
-      color: var(--black);
-      font-weight: 600;
-      cursor: pointer;
-      padding: 0.5rem;
-      transition: color 0.2s ease;
-    }
-    nav a:hover {
-      color: var(--yellow-dark);
-    }
-    .checkout-btn {
-      background: var(--yellow-dark);
-      padding: 0.55rem 1.3rem;
-      border-radius: 40px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .checkout-btn:hover {
-      background: var(--black);
-      color: var(--yellow);
-      border: 2px solid var(--yellow);
-    }
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 2rem 4rem;
-      text-align: center;
-    }
-    main h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    main p {
-      max-width: 700px;
-      margin: 0 auto 2.5rem auto;
-      color: var(--yellow);
-      font-weight: 600;
-      font-size: 1.2rem;
-    }
-    .buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn {
-      background: var(--yellow);
-      color: var(--black);
-      font-weight: 700;
-      border: none;
-      border-radius: 40px;
-      padding: 0.75rem 2rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: var(--yellow-dark);
-      color: var(--text-light);
-    }
-    .btn-outline {
-      background: none;
-      border: 2px solid var(--yellow);
-      color: var(--yellow);
-    }
-    .btn-outline:hover {
-      background: var(--yellow);
-      color: var(--black);
-      border-color: var(--yellow);
-    }
-    @media (max-width: 600px) {
-      main h1 {
-        font-size: 2rem;
-      }
-      nav a {
-        margin-left: 1rem;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madras Silicons</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css">
 </head>
 <body>
-  <header>
-    <div class="brand">Madras Silicons</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contacts</a>
-      <button class="checkout-btn">Checkout</button>
+
+  <!-- Navbar -->
+  <section class="menu cid" once="menu" id="menu1">
+    <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Madras Silicons</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#vision">Vision</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
-  </header>
-  <main>
-    <h1>
-      Madras Silicons<br />
-      journey of building MCU from scratch
-    </h1>
-    <p>
-      Hi, I’m Karan Arjun S from Chennai. I love DIY electronics, building machines, and turning ideas into working prototypes. This site shows what a single person from Madras can build with curiosity and persistence.
-    </p>
-    <div class="buttons">
-      <button class="btn">See My Projects</button>
-      <button class="btn btn-outline">Contact Me</button>
+  </section>
+
+  <!-- Hero -->
+  <section class="header1 cid" id="header1">
+    <div class="container text-center py-5">
+      <h1 class="display-3 fw-bold">Madras Silicons</h1>
+      <p class="lead mt-3">
+        Journey of building an MCU from scratch. I’m Karan Arjun S from Chennai — 
+        a tech enthusiast who loves DIY, machines, and electronics.  
+        This is my attempt to showcase how far one person from Madras can go with curiosity and persistence.
+      </p>
+      <div class="mt-4">
+        <a class="btn btn-warning me-2" href="#projects">See My Projects</a>
+        <a class="btn btn-dark" href="#contact">Contact Me</a>
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- Projects -->
+  <section class="features3 cid py-5 bg-light" id="projects">
+    <div class="container text-center">
+      <h2 class="mb-5">Projects</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card p-4 shadow-sm">
+            <h5 class="fw-bold">Custom MCU Prototype</h5>
+            <p>Designing and experimenting with a microcontroller unit from scratch.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4 shadow-sm">
+            <h5 class="fw-bold">DIY Machines</h5>
+            <p>Building cool machines with electronics and mechanics combined.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4 shadow-sm">
+            <h5 class="fw-bold">Electronics Experiments</h5>
+            <p>Learning circuits, wireless systems, and embedded systems step by step.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Keep your MCU image -->
+      <div class="mt-5">
+        <img src="assets/images/mcu.jpg" class="img-fluid rounded shadow" alt="MCU Project">
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="content5 cid py-5" id="vision">
+    <div class="container text-center">
+      <h2 class="mb-4">Vision</h2>
+      <p class="lead">
+        Madras Silicons is my journey to prove that with curiosity, passion, and persistence,  
+        even one individual can create something meaningful.  
+        My goal is to inspire others to explore electronics, machines, and innovation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contacts3 cid bg-light py-5" id="contact">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <ul class="list-unstyled fs-5">
+            <li><strong>Phone:</strong> 7904116530</li>
+            <li><strong>Email:</strong> karanarjun432@gmail.com</li>
+            <li><strong>Location:</strong> Chennai, India</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="footer3 cid py-3 text-center text-white bg-dark" id="footer3">
+    <div class="container">
+      <p class="mb-1">© 2025 Madras Silicons — Built by Karan Arjun S | Chennai</p>
+      <div>
+        <a href="https://github.com/" class="text-white me-3">GitHub</a>
+        <a href="https://linkedin.com/" class="text-white me-3">LinkedIn</a>
+        <a href="https://youtube.com/" class="text-white">YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
